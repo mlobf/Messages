@@ -3,7 +3,7 @@ import { MessagesService } from './messages.services';
 export declare class MessagesController {
     messagesService: MessagesService;
     constructor(messagesService: MessagesService);
-    listMessages(): any;
-    createMessage(body: CreateMessageDto): any;
+    listMessages(): Promise<any>;
+    createMessage(body: CreateMessageDto): Promise<void>;
     getMessage(id: string): Promise<any>;
 }

@@ -11,21 +11,21 @@ import { MessagesService } from './messages.services';
 
 @Controller('messages')
 export class MessagesController {
-  constructor(public messagesService: MessagesService) { }
+  constructor(public messagesService: MessagesService) {}
 
   @Get()
   listMessages() {
-    return this.messagesServices.findAll();
+    return this.messagesService.findAll();
   }
 
   @Post()
   createMessage(@Body() body: CreateMessageDto) {
-    return this.messagesServices.create(body.content);
+    return this.messagesService.create(body.content);
   }
 
   @Get('/:id')
   async getMessage(@Param('id') id: string) {
-    const message = await this.messagesServices.findOne(id);
+    const message = await this.messagesService.findOne(id);
 
     if (!message) {
       throw new NotFoundException('message not found');

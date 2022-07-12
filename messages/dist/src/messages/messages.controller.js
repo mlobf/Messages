@@ -21,13 +21,13 @@ let MessagesController = class MessagesController {
         this.messagesService = messagesService;
     }
     listMessages() {
-        return this.messagesServices.findAll();
+        return this.messagesService.findAll();
     }
     createMessage(body) {
-        return this.messagesServices.create(body.content);
+        return this.messagesService.create(body.content);
     }
     async getMessage(id) {
-        const message = await this.messagesServices.findOne(id);
+        const message = await this.messagesService.findOne(id);
         if (!message) {
             throw new common_1.NotFoundException('message not found');
         }
