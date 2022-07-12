@@ -17,8 +17,8 @@ const common_1 = require("@nestjs/common");
 const create_message_dto_1 = require("./dtos/create-message.dto");
 const messages_services_1 = require("./messages.services");
 let MessagesController = class MessagesController {
-    constructor() {
-        this.messagesServices = new messages_services_1.MessagesService();
+    constructor(messagesService) {
+        this.messagesService = messagesService;
     }
     listMessages() {
         return this.messagesServices.findAll();
@@ -56,7 +56,7 @@ __decorate([
 ], MessagesController.prototype, "getMessage", null);
 MessagesController = __decorate([
     (0, common_1.Controller)('messages'),
-    __metadata("design:paramtypes", [])
+    __metadata("design:paramtypes", [messages_services_1.MessagesService])
 ], MessagesController);
 exports.MessagesController = MessagesController;
 //# sourceMappingURL=messages.controller.js.map

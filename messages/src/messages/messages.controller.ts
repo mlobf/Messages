@@ -1,15 +1,17 @@
-import { Controller, Get, Post, Body, Param, NotFoundException } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Param,
+  NotFoundException,
+} from '@nestjs/common';
 import { CreateMessageDto } from './dtos/create-message.dto';
 import { MessagesService } from './messages.services';
 
 @Controller('messages')
 export class MessagesController {
-  messagesServices: MessagesService;
-
-  constructor() {
-    // Nao é boa pratica
-    this.messagesServices = new MessagesService();
-  }
+  constructor(public messagesService: MessagesService) { }
 
   @Get()
   listMessages() {
